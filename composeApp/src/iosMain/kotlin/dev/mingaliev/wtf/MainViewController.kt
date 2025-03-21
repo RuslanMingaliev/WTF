@@ -1,3 +1,5 @@
+@file:Suppress("FunctionName")
+
 package dev.mingaliev.wtf
 
 import androidx.compose.ui.window.ComposeUIViewController

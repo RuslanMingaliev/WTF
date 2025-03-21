@@ -34,7 +34,7 @@ class InMemoryTransactionRepository : TransactionRepository {
         val filteredTransactions = transactions.filter {
             it.timestamp in from..to
         }
-        
+
         TransactionsByPeriod(
             transactions = filteredTransactions,
             totalIncome = filteredTransactions.filter { it.amount > 0 }.sumOf { it.amount },
@@ -69,4 +69,4 @@ class InMemoryTransactionRepository : TransactionRepository {
     override suspend fun deleteTransaction(transactionId: String) {
         _transactions.value = _transactions.value.filter { it.id != transactionId }
     }
-} 
+}

@@ -53,36 +53,124 @@ fun App() {
             val now = currentMoment.toLocalDateTime(timeZone)
 
             // Income
-            addTransaction(repository, "Salary", 150000.0, defaultCategories[6], defaultMoneySources[1], now)
-            addTransaction(repository, "Bonus", 50000.0, defaultCategories[6], defaultMoneySources[1],
-                currentMoment.minus(DatePeriod(days = 2), timeZone).toLocalDateTime(timeZone))
-            addTransaction(repository, "Debt return", 15000.0, defaultCategories[5], defaultMoneySources[2],
-                currentMoment.minus(DatePeriod(days = 5), timeZone).toLocalDateTime(timeZone))
+            addTransaction(
+                repository = repository,
+                title = "Salary",
+                amount = 150000.0,
+                category = defaultCategories[6],
+                source = defaultMoneySources[1],
+                timestamp = now,
+            )
+            addTransaction(
+                repository = repository,
+                title = "Bonus",
+                amount = 50000.0,
+                category = defaultCategories[6],
+                source = defaultMoneySources[1],
+                timestamp = currentMoment.minus(DatePeriod(days = 2), timeZone).toLocalDateTime(timeZone),
+            )
+            addTransaction(
+                repository = repository,
+                title = "Debt return",
+                amount = 15000.0,
+                category = defaultCategories[5],
+                source = defaultMoneySources[2],
+                timestamp = currentMoment.minus(DatePeriod(days = 5), timeZone).toLocalDateTime(timeZone),
+            )
 
             // Daily expenses
-            addTransaction(repository, "Groceries at Magnit", -2500.0, defaultCategories[0], defaultMoneySources[1], now)
-            addTransaction(repository, "Lunch at cafe", -800.0, defaultCategories[7], defaultMoneySources[1], now)
-            addTransaction(repository, "Metro fare", -100.0, defaultCategories[1], defaultMoneySources[1], now)
+            addTransaction(
+                repository = repository,
+                title = "Groceries at Magnit",
+                amount = -2500.0,
+                category = defaultCategories[0],
+                source = defaultMoneySources[1],
+                timestamp = now,
+            )
+            addTransaction(
+                repository = repository,
+                title = "Lunch at cafe",
+                amount = -800.0,
+                category = defaultCategories[7],
+                source = defaultMoneySources[1],
+                timestamp = now,
+            )
+            addTransaction(
+                repository = repository,
+                title = "Metro fare",
+                amount = -100.0,
+                category = defaultCategories[1],
+                source = defaultMoneySources[1],
+                timestamp = now,
+            )
 
             // Weekly expenses
-            addTransaction(repository, "Nike sneakers", -8500.0, defaultCategories[4], defaultMoneySources[1],
-                currentMoment.minus(DatePeriod(days = 2), timeZone).toLocalDateTime(timeZone))
-            addTransaction(repository, "Dinner at restaurant", -3500.0, defaultCategories[7], defaultMoneySources[1],
-                currentMoment.minus(DatePeriod(days = 3), timeZone).toLocalDateTime(timeZone))
-            addTransaction(repository, "Gym membership", -4000.0, defaultCategories[8], defaultMoneySources[1],
-                currentMoment.minus(DatePeriod(days = 4), timeZone).toLocalDateTime(timeZone))
-            addTransaction(repository, "Groceries at Auchan", -4500.0, defaultCategories[0], defaultMoneySources[1],
-                currentMoment.minus(DatePeriod(days = 5), timeZone).toLocalDateTime(timeZone))
+            addTransaction(
+                repository = repository,
+                title = "Nike sneakers",
+                amount = -8500.0,
+                category = defaultCategories[4],
+                source = defaultMoneySources[1],
+                timestamp = currentMoment.minus(DatePeriod(days = 2), timeZone).toLocalDateTime(timeZone),
+            )
+            addTransaction(
+                repository = repository,
+                title = "Dinner at restaurant",
+                amount = -3500.0,
+                category = defaultCategories[7],
+                source = defaultMoneySources[1],
+                timestamp = currentMoment.minus(DatePeriod(days = 3), timeZone).toLocalDateTime(timeZone)
+            )
+            addTransaction(
+                repository = repository,
+                title = "Gym membership",
+                amount = -4000.0,
+                category = defaultCategories[8],
+                source = defaultMoneySources[1],
+                timestamp = currentMoment.minus(DatePeriod(days = 4), timeZone).toLocalDateTime(timeZone)
+            )
+            addTransaction(
+                repository = repository,
+                title = "Groceries at Auchan",
+                amount = -4500.0,
+                category = defaultCategories[0],
+                source = defaultMoneySources[1],
+                timestamp = currentMoment.minus(DatePeriod(days = 5), timeZone).toLocalDateTime(timeZone)
+            )
 
             // Monthly expenses
-            addTransaction(repository, "Gift for mom", -5000.0, defaultCategories[9], defaultMoneySources[1],
-                currentMoment.minus(DatePeriod(days = 10), timeZone).toLocalDateTime(timeZone))
-            addTransaction(repository, "Gaming console", -35000.0, defaultCategories[2], defaultMoneySources[1],
-                currentMoment.minus(DatePeriod(days = 15), timeZone).toLocalDateTime(timeZone))
-            addTransaction(repository, "Dentist visit", -15000.0, defaultCategories[3], defaultMoneySources[1],
-                currentMoment.minus(DatePeriod(days = 20), timeZone).toLocalDateTime(timeZone))
-            addTransaction(repository, "Winter jacket", -12000.0, defaultCategories[4], defaultMoneySources[1],
-                currentMoment.minus(DatePeriod(days = 25), timeZone).toLocalDateTime(timeZone))
+            addTransaction(
+                repository = repository,
+                title = "Gift for mom",
+                amount = -5000.0,
+                category = defaultCategories[9],
+                source = defaultMoneySources[1],
+                timestamp = currentMoment.minus(DatePeriod(days = 10), timeZone).toLocalDateTime(timeZone)
+            )
+            addTransaction(
+                repository = repository,
+                title = "Gaming console",
+                amount = -35000.0,
+                category = defaultCategories[2],
+                source = defaultMoneySources[1],
+                timestamp = currentMoment.minus(DatePeriod(days = 15), timeZone).toLocalDateTime(timeZone)
+            )
+            addTransaction(
+                repository = repository,
+                title = "Dentist visit",
+                amount = -15000.0,
+                category = defaultCategories[3],
+                source = defaultMoneySources[1],
+                timestamp = currentMoment.minus(DatePeriod(days = 20), timeZone).toLocalDateTime(timeZone)
+            )
+            addTransaction(
+                repository = repository,
+                title = "Winter jacket",
+                amount = -12000.0,
+                category = defaultCategories[4],
+                source = defaultMoneySources[1],
+                timestamp = currentMoment.minus(DatePeriod(days = 25), timeZone).toLocalDateTime(timeZone)
+            )
         }
 
         NavigationContainer(viewModel)

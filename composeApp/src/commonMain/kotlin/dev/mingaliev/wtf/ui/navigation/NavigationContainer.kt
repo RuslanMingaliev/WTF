@@ -54,7 +54,10 @@ fun NavigationContainer(mainViewModel: MainViewModel) {
                         Icon(
                             imageVector = Icons.Default.Home,
                             contentDescription = "Home",
-                            tint = if (uiState.currentScreen == Screen.HOME) MaterialTheme.colors.primary else MaterialTheme.colors.onSurface
+                            tint = when (uiState.currentScreen == Screen.HOME) {
+                                true -> MaterialTheme.colors.primary
+                                false -> MaterialTheme.colors.onSurface
+                            }
                         )
                     },
                     label = {
@@ -73,7 +76,10 @@ fun NavigationContainer(mainViewModel: MainViewModel) {
                         Icon(
                             imageVector = Icons.Default.List,
                             contentDescription = "Analytics",
-                            tint = if (uiState.currentScreen == Screen.STATISTICS) MaterialTheme.colors.primary else MaterialTheme.colors.onSurface
+                            tint = when (uiState.currentScreen == Screen.STATISTICS) {
+                                true -> MaterialTheme.colors.primary
+                                false -> MaterialTheme.colors.onSurface
+                            }
                         )
                     },
                     label = {
@@ -92,7 +98,10 @@ fun NavigationContainer(mainViewModel: MainViewModel) {
                         Icon(
                             imageVector = Icons.Default.Add,
                             contentDescription = "Add",
-                            tint = if (uiState.currentScreen == Screen.TRANSACTIONS) MaterialTheme.colors.primary else MaterialTheme.colors.onSurface
+                            tint = when (uiState.currentScreen == Screen.TRANSACTIONS) {
+                                true -> MaterialTheme.colors.primary
+                                false -> MaterialTheme.colors.onSurface
+                            }
                         )
                     },
                     label = {
@@ -111,7 +120,10 @@ fun NavigationContainer(mainViewModel: MainViewModel) {
                         Icon(
                             imageVector = Icons.Default.AccountCircle,
                             contentDescription = "Accounts",
-                            tint = if (uiState.currentScreen == Screen.ACCOUNTS) MaterialTheme.colors.primary else MaterialTheme.colors.onSurface
+                            tint = when (uiState.currentScreen == Screen.ACCOUNTS) {
+                                true -> MaterialTheme.colors.primary
+                                false -> MaterialTheme.colors.onSurface
+                            }
                         )
                     },
                     label = {
@@ -130,7 +142,10 @@ fun NavigationContainer(mainViewModel: MainViewModel) {
                         Icon(
                             imageVector = Icons.Default.Person,
                             contentDescription = "Profile",
-                            tint = if (uiState.currentScreen == Screen.PROFILE) MaterialTheme.colors.primary else MaterialTheme.colors.onSurface
+                            tint = when (uiState.currentScreen == Screen.PROFILE){
+                                true -> MaterialTheme.colors.primary
+                                false -> MaterialTheme.colors.onSurface
+                            }
                         )
                     },
                     label = {
@@ -149,19 +164,23 @@ fun NavigationContainer(mainViewModel: MainViewModel) {
                 viewModel = mainViewModel,
                 paddingValues = paddingValues,
             )
+
             Screen.STATISTICS -> StatisticsScreen(
                 viewModel = statisticsViewModel,
                 paddingValues = paddingValues,
             )
+
             Screen.TRANSACTIONS -> AddTransactionScreen(
                 viewModel = addTransactionViewModel,
                 onDismiss = { mainViewModel.onNavigateBack() },
                 onAddTransaction = { transaction -> mainViewModel.onAddTransaction(transaction) },
                 paddingValues = paddingValues,
             )
+
             Screen.ACCOUNTS -> AccountsScreen(
                 paddingValues = paddingValues,
             )
+
             Screen.PROFILE -> ProfileScreen(
                 viewModel = profileViewModel,
                 paddingValues = paddingValues

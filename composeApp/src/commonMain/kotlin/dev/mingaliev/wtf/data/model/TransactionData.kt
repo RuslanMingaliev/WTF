@@ -28,4 +28,4 @@ data class TransactionsByPeriod(
     val transactions: List<TransactionData>,
     val totalIncome: Double,
     val totalExpense: Double
-) 
+)
