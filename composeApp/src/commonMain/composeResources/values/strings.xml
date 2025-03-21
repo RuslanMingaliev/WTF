@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Where's the funds?</string>
+    <string name="app_name">Where are The Funds?</string>
     <string name="app_name_short">WTF?</string>
 
     <string name="add_transaction_title">Добавить транзакцию</string>
