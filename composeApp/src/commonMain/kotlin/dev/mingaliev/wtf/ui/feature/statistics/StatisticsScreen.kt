@@ -15,10 +15,10 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.material.Card
-import androidx.compose.material.Divider
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Text
+import androidx.compose.material3.Card
+import androidx.compose.material3.HorizontalDivider
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Alignment
@@ -36,7 +36,7 @@ fun StatisticsScreen(
     paddingValues: PaddingValues
 ) {
     val uiState = viewModel.uiState.collectAsState()
-    val errorColor = MaterialTheme.colors.error
+    val errorColor = MaterialTheme.colorScheme.error
     val gridLineColor = Color.Gray.copy(alpha = 0.2f)
 
     LazyColumn(
@@ -52,12 +52,11 @@ fun StatisticsScreen(
             ) {
                 Text(
                     text = "Statistics",
-                    style = MaterialTheme.typography.h5
+                    style = MaterialTheme.typography.headlineSmall
                 )
 
                 Card(
                     modifier = Modifier.fillMaxWidth(),
-                    elevation = 4.dp
                 ) {
                     Column(
                         modifier = Modifier.padding(16.dp),
@@ -70,23 +69,23 @@ fun StatisticsScreen(
                             Column {
                                 Text(
                                     text = "Total income",
-                                    style = MaterialTheme.typography.subtitle2
+                                    style = MaterialTheme.typography.titleMedium
                                 )
                                 Text(
                                     text = "${uiState.value.totalIncome.toInt()} ₽",
-                                    style = MaterialTheme.typography.h6,
-                                    color = MaterialTheme.colors.primary
+                                    style = MaterialTheme.typography.headlineSmall,
+                                    color = MaterialTheme.colorScheme.primary
                                 )
                             }
                             Column(horizontalAlignment = Alignment.End) {
                                 Text(
                                     text = "Total expenses",
-                                    style = MaterialTheme.typography.subtitle2
+                                    style = MaterialTheme.typography.titleMedium
                                 )
                                 Text(
                                     text = "-${uiState.value.totalExpense.toInt()} ₽",
-                                    style = MaterialTheme.typography.h6,
-                                    color = MaterialTheme.colors.error
+                                    style = MaterialTheme.typography.headlineSmall,
+                                    color = MaterialTheme.colorScheme.error
                                 )
                             }
                         }
@@ -95,7 +94,6 @@ fun StatisticsScreen(
 
                 Card(
                     modifier = Modifier.fillMaxWidth(),
-                    elevation = 4.dp
                 ) {
                     Column(
                         modifier = Modifier.padding(16.dp),
@@ -103,7 +101,7 @@ fun StatisticsScreen(
                     ) {
                         Text(
                             text = "Expenses for the week",
-                            style = MaterialTheme.typography.subtitle2
+                            style = MaterialTheme.typography.titleMedium
                         )
 
                         Box(
@@ -184,30 +182,34 @@ fun StatisticsScreen(
                         ) {
                             Text(
                                 text = transaction.category.emoji,
-                                style = MaterialTheme.typography.subtitle1
+                                style = MaterialTheme.typography.titleMedium
                             )
                         }
                         Column {
                             Text(
                                 text = transaction.title,
-                                style = MaterialTheme.typography.subtitle1
+                                style = MaterialTheme.typography.titleMedium
                             )
                             Text(
                                 text = transaction.category.name,
-                                style = MaterialTheme.typography.caption,
-                                color = MaterialTheme.colors.onSurface.copy(alpha = 0.6f)
+                                style = MaterialTheme.typography.labelMedium,
+                                color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.6f)
                             )
                         }
                     }
                     Text(
                         text = "${transaction.amount.toInt()} ₽",
-                        style = MaterialTheme.typography.subtitle1,
-                        color = if (transaction.amount < 0) MaterialTheme.colors.error else MaterialTheme.colors.primary
+                        style = MaterialTheme.typography.titleMedium,
+                        color = if (transaction.amount < 0) {
+                            MaterialTheme.colorScheme.error
+                        } else {
+                            MaterialTheme.colorScheme.primary
+                        },
                     )
                 }
-                Divider(
+                HorizontalDivider(
                     modifier = Modifier.fillMaxWidth(),
-                    color = MaterialTheme.colors.onSurface.copy(alpha = 0.12f)
+                    color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.12f)
                 )
             }
         }

@@ -8,27 +8,21 @@ import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.Card
-import androidx.compose.material.Divider
-import androidx.compose.material.Icon
-import androidx.compose.material.IconButton
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Tab
-import androidx.compose.material.TabPosition
-import androidx.compose.material.TabRow
-import androidx.compose.material.Text
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Notifications
+import androidx.compose.material3.Card
+import androidx.compose.material3.HorizontalDivider
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Tab
+import androidx.compose.material3.TabRow
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
@@ -60,139 +54,121 @@ fun MainScreen(
     LazyColumn(
         modifier = Modifier
             .fillMaxSize()
-            .padding(paddingValues)
-            .padding(16.dp),
+            .padding(paddingValues),
         verticalArrangement = Arrangement.spacedBy(16.dp)
     ) {
         item {
-            Row(
-                modifier = Modifier.fillMaxWidth(),
-                horizontalArrangement = Arrangement.SpaceBetween,
-                verticalAlignment = Alignment.CenterVertically
+            Column(
+                modifier = Modifier.padding(16.dp),
+                verticalArrangement = Arrangement.spacedBy(16.dp)
             ) {
-                Column {
-                    Text(
-                        text = "Hello, ${uiState.userName}!",
-                        style = MaterialTheme.typography.h5
-                    )
-                    Text(
-                        text = greeting,
-                        style = MaterialTheme.typography.subtitle1
-                    )
-                }
-                IconButton(onClick = { }) {
-                    Icon(Icons.Default.Notifications, contentDescription = "Notifications")
-                }
-            }
-        }
-
-        item {
-            Card(
-                modifier = Modifier.fillMaxWidth(),
-                elevation = 4.dp
-            ) {
-                Column(
-                    modifier = Modifier.padding(16.dp),
-                    verticalArrangement = Arrangement.spacedBy(16.dp)
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.SpaceBetween,
+                    verticalAlignment = Alignment.CenterVertically
                 ) {
-                    Row(
-                        modifier = Modifier.fillMaxWidth(),
-                        horizontalArrangement = Arrangement.SpaceBetween
-                    ) {
-                        Column {
-                            Text(
-                                text = "Total balance",
-                                style = MaterialTheme.typography.subtitle2
-                            )
-                            Text(
-                                text = "${uiState.totalBalance.toInt()} ₽",
-                                style = MaterialTheme.typography.h4
-                            )
-                        }
-                        Column(horizontalAlignment = Alignment.End) {
-                            Text(
-                                text = "Total expenses",
-                                style = MaterialTheme.typography.subtitle2
-                            )
-                            Text(
-                                text = "-${uiState.totalExpense.toInt()} ₽",
-                                style = MaterialTheme.typography.h6,
-                                color = MaterialTheme.colors.error
-                            )
-                        }
+                    Column {
+                        Text(
+                            text = "Hello, ${uiState.userName}!",
+                            style = MaterialTheme.typography.headlineMedium
+                        )
+                        Text(
+                            text = greeting,
+                            style = MaterialTheme.typography.bodyLarge
+                        )
                     }
-
-                    GoalProgressBar(
-                        totalExpense = uiState.totalExpense,
-                        targetExpense = uiState.targetExpense
-                    )
-                }
-            }
-        }
-
-        item {
-            Card(
-                modifier = Modifier.fillMaxWidth(),
-                elevation = 4.dp
-            ) {
-                Column(
-                    modifier = Modifier.padding(16.dp),
-                    verticalArrangement = Arrangement.spacedBy(16.dp)
-                ) {
-                    Row(
-                        modifier = Modifier.fillMaxWidth(),
-                        horizontalArrangement = Arrangement.SpaceBetween,
-                        verticalAlignment = Alignment.CenterVertically
-                    ) {
-                        Column {
-                            Text(
-                                text = "Weekly income",
-                                style = MaterialTheme.typography.subtitle2
-                            )
-                            Text(
-                                text = "${uiState.weeklyIncome.toInt()} ₽",
-                                style = MaterialTheme.typography.h6,
-                                color = MaterialTheme.colors.primary
-                            )
-                        }
-                        Column(horizontalAlignment = Alignment.End) {
-                            Text(
-                                text = "Weekly expenses",
-                                style = MaterialTheme.typography.subtitle2
-                            )
-                            Text(
-                                text = "-${uiState.weeklyExpense.toInt()} ₽",
-                                style = MaterialTheme.typography.h6,
-                                color = MaterialTheme.colors.error
-                            )
-                        }
+                    IconButton(onClick = { }) {
+                        Icon(Icons.Default.Notifications, contentDescription = "Notifications")
                     }
                 }
-            }
-        }
 
-        item {
+                Card(
+                    modifier = Modifier.fillMaxWidth(),
+                ) {
+                    Column(
+                        modifier = Modifier.padding(16.dp),
+                        verticalArrangement = Arrangement.spacedBy(16.dp)
+                    ) {
+                        Row(
+                            modifier = Modifier.fillMaxWidth(),
+                            horizontalArrangement = Arrangement.SpaceBetween
+                        ) {
+                            Column {
+                                Text(
+                                    text = "Total balance",
+                                    style = MaterialTheme.typography.bodyMedium
+                                )
+                                Text(
+                                    text = "${uiState.totalBalance.toInt()} ₽",
+                                    style = MaterialTheme.typography.headlineLarge
+                                )
+                            }
+                            Column(horizontalAlignment = Alignment.End) {
+                                Text(
+                                    text = "Total expenses",
+                                    style = MaterialTheme.typography.bodyMedium
+                                )
+                                Text(
+                                    text = "-${uiState.totalExpense.toInt()} ₽",
+                                    style = MaterialTheme.typography.titleLarge,
+                                    color = MaterialTheme.colorScheme.error
+                                )
+                            }
+                        }
+
+                        GoalProgressBar(
+                            totalExpense = uiState.totalExpense,
+                            targetExpense = uiState.targetExpense
+                        )
+                    }
+                }
+
+                Card(
+                    modifier = Modifier.fillMaxWidth(),
+                ) {
+                    Column(
+                        modifier = Modifier.padding(16.dp),
+                        verticalArrangement = Arrangement.spacedBy(16.dp)
+                    ) {
+                        Row(
+                            modifier = Modifier.fillMaxWidth(),
+                            horizontalArrangement = Arrangement.SpaceBetween,
+                            verticalAlignment = Alignment.CenterVertically
+                        ) {
+                            Column {
+                                Text(
+                                    text = "Weekly income",
+                                    style = MaterialTheme.typography.bodyMedium
+                                )
+                                Text(
+                                    text = "${uiState.weeklyIncome.toInt()} ₽",
+                                    style = MaterialTheme.typography.titleLarge,
+                                    color = MaterialTheme.colorScheme.primary
+                                )
+                            }
+                            Column(horizontalAlignment = Alignment.End) {
+                                Text(
+                                    text = "Weekly expenses",
+                                    style = MaterialTheme.typography.bodyMedium
+                                )
+                                Text(
+                                    text = "-${uiState.weeklyExpense.toInt()} ₽",
+                                    style = MaterialTheme.typography.titleLarge,
+                                    color = MaterialTheme.colorScheme.error
+                                )
+                            }
+                        }
+                    }
+                }
+
+
+            }
+
             TabRow(
                 selectedTabIndex = when (uiState.selectedPeriod) {
                     Period.DAILY -> 0
                     Period.WEEKLY -> 1
                     Period.MONTHLY -> 2
-                },
-                backgroundColor = MaterialTheme.colors.surface,
-                contentColor = MaterialTheme.colors.primary,
-                indicator = { tabPositions ->
-                    Box(
-                        modifier = Modifier
-                            .tabIndicatorOffset(
-                                tabPositions[when (uiState.selectedPeriod) {
-                                    Period.DAILY -> 0
-                                    Period.WEEKLY -> 1
-                                    Period.MONTHLY -> 2
-                                }]
-                            )
-                            .height(2.dp)
-                            .background(MaterialTheme.colors.primary)
-                    )
                 }
             ) {
                 Tab(
@@ -236,109 +212,36 @@ fun MainScreen(
                         ) {
                             Text(
                                 text = transaction.category.emoji,
-                                style = MaterialTheme.typography.subtitle1
+                                style = MaterialTheme.typography.bodyLarge
                             )
                         }
                         Column {
                             Text(
                                 text = transaction.title,
-                                style = MaterialTheme.typography.subtitle1
+                                style = MaterialTheme.typography.bodyLarge
                             )
                             Text(
                                 text = transaction.category.name,
-                                style = MaterialTheme.typography.caption,
-                                color = MaterialTheme.colors.onSurface.copy(alpha = 0.6f)
+                                style = MaterialTheme.typography.bodySmall,
+                                color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.6f)
                             )
                         }
                     }
                     Text(
                         text = "${transaction.amount.toInt()} ₽",
-                        style = MaterialTheme.typography.subtitle1,
-                        color = if (transaction.amount < 0) MaterialTheme.colors.error else MaterialTheme.colors.primary
+                        style = MaterialTheme.typography.bodyLarge,
+                        color = if (transaction.amount < 0) {
+                            MaterialTheme.colorScheme.error
+                        } else {
+                            MaterialTheme.colorScheme.primary
+                        }
                     )
                 }
-                Divider(
+                HorizontalDivider(
                     modifier = Modifier.fillMaxWidth(),
-                    color = MaterialTheme.colors.onSurface.copy(alpha = 0.12f)
+                    color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.12f)
                 )
             }
         }
     }
 }
-
-@Composable
-private fun GoalProgressBar(
-    totalExpense: Double,
-    targetExpense: Double = 30000.0 // Целевое значение расходов в месяц
-) {
-    val progress = (totalExpense / targetExpense).coerceIn(0.0, 1.0)
-    val percentage = (progress * 100).toInt()
-
-    Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
-        Text(
-            text = when {
-                percentage >= 90 -> "Attention! You are approaching the expense limit"
-                percentage >= 75 -> "You have already spent $percentage% of the monthly limit"
-                percentage >= 50 -> "Expenses within normal range, $percentage% of the limit"
-                else -> "Excellent result! Spent only $percentage% of the limit"
-            },
-            style = MaterialTheme.typography.subtitle2,
-            color = when {
-                percentage >= 90 -> MaterialTheme.colors.error
-                percentage >= 75 -> MaterialTheme.colors.error.copy(alpha = 0.7f)
-                percentage >= 50 -> MaterialTheme.colors.primary
-                else -> MaterialTheme.colors.primary
-            }
-        )
-
-        Box(
-            modifier = Modifier
-                .fillMaxWidth()
-                .height(8.dp)
-                .clip(RoundedCornerShape(4.dp))
-                .background(MaterialTheme.colors.onSurface.copy(alpha = 0.12f))
-        ) {
-            Box(
-                modifier = Modifier
-                    .fillMaxWidth(progress.toFloat())
-                    .height(8.dp)
-                    .clip(RoundedCornerShape(4.dp))
-                    .background(
-                        when {
-                            percentage >= 90 -> MaterialTheme.colors.error
-                            percentage >= 75 -> MaterialTheme.colors.error.copy(alpha = 0.7f)
-                            percentage >= 50 -> MaterialTheme.colors.primary
-                            else -> MaterialTheme.colors.primary
-                        }
-                    )
-            )
-        }
-
-        Row(
-            modifier = Modifier.fillMaxWidth(),
-            horizontalArrangement = Arrangement.SpaceBetween
-        ) {
-            Text(
-                text = "${totalExpense.toInt()} ₽",
-                style = MaterialTheme.typography.caption
-            )
-            Text(
-                text = "${targetExpense.toInt()} ₽",
-                style = MaterialTheme.typography.caption
-            )
-        }
-    }
-}
-
-@Composable
-private fun Modifier.tabIndicatorOffset(
-    currentTabPosition: TabPosition
-): Modifier = this.then(
-    Modifier.fillMaxWidth()
-        .wrapContentSize(Alignment.BottomStart)
-        .offset(
-            x = currentTabPosition.left,
-            y = (-2).dp
-        )
-        .width(currentTabPosition.width)
-)
