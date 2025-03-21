@@ -12,6 +12,8 @@ pluginManagement {
         }
         mavenCentral()
         gradlePluginPortal()
+        // Hot reload plugin
+        maven("https://packages.jetbrains.team/maven/p/firework/dev")
     }
 }
 
@@ -25,7 +27,13 @@ dependencyResolutionManagement {
             }
         }
         mavenCentral()
+        // Hot reload plugin
+        maven("https://packages.jetbrains.team/maven/p/firework/dev")
     }
+}
+
+plugins {
+    id("org.gradle.toolchains.foojay-resolver-convention") version "0.9.0"
 }
 
 include(":composeApp")
