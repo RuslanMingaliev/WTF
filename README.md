@@ -1,10 +1,10 @@
-# WTF? (Where's The Funds?)
+# WTF? (Where are The Funds?)
 
 A modern, minimalist expense tracking application built with Compose Multiplatform. This project serves as an experimental playground to explore the capabilities of Compose Multiplatform for building cross-platform applications.
 
 ## About
 
-WTF? (Where's The Funds?) is a personal finance management application that helps you track your expenses and income with a clean, intuitive interface. The project showcases the power of Kotlin and Compose Multiplatform while maintaining a focus on user experience and modern design principles.
+WTF? (Where are The Funds?) is a personal finance management application that helps you track your expenses and income with a clean, intuitive interface. The project showcases the power of Kotlin and Compose Multiplatform while maintaining a focus on user experience and modern design principles.
 
 ## Features
 
@@ -38,11 +38,31 @@ The development process showcases how AI can be leveraged to accelerate developm
 
 ## Screenshots
 
+#### Desktop (macOS)
+
 <p align="center">
   <img src="screenshots/home.png" width="200" alt="Home Screen"/>
   <img src="screenshots/statistics.png" width="200" alt="Statistics Screen"/>
   <img src="screenshots/add.png" width="200" alt="Add Transaction Screen"/>
   <img src="screenshots/profile.png" width="200" alt="Profile Screen"/>
+</p>
+
+#### Android
+
+<p align="center">
+  <img src="screenshots/home-android.png" width="200" alt="Home Screen"/>
+  <img src="screenshots/statistics-android.png" width="200" alt="Statistics Screen"/>
+  <img src="screenshots/add-android.png" width="200" alt="Add Transaction Screen"/>
+  <img src="screenshots/profile-android.png" width="200" alt="Profile Screen"/>
+</p>
+
+#### iOS
+
+<p align="center">
+  <img src="screenshots/home-ios.png" width="200" alt="Home Screen"/>
+  <img src="screenshots/statistics-ios.png" width="200" alt="Statistics Screen"/>
+  <img src="screenshots/add-ios.png" width="200" alt="Add Transaction Screen"/>
+  <img src="screenshots/profile-ios.png" width="200" alt="Profile Screen"/>
 </p>
 
 ## Development Status

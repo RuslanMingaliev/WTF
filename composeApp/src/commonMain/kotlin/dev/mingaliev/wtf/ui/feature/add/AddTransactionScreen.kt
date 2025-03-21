@@ -6,7 +6,6 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ExperimentalLayoutApi
 import androidx.compose.foundation.layout.FlowRow
 import androidx.compose.foundation.layout.PaddingValues
-import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -14,13 +13,13 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardOptions
-import androidx.compose.material.Button
-import androidx.compose.material.ButtonDefaults
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.OutlinedButton
-import androidx.compose.material.OutlinedTextField
-import androidx.compose.material.Surface
-import androidx.compose.material.Text
+import androidx.compose.material3.Button
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedTextField
+import androidx.compose.material3.Surface
+import androidx.compose.material3.Tab
+import androidx.compose.material3.TabRow
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
@@ -55,43 +54,9 @@ fun AddTransactionScreen(
         item {
             Text(
                 text = "New Transaction",
-                style = MaterialTheme.typography.h5,
+                style = MaterialTheme.typography.headlineSmall,
                 modifier = Modifier.padding(vertical = 16.dp)
             )
-        }
-
-        item {
-            Row(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(vertical = 8.dp),
-                horizontalArrangement = Arrangement.spacedBy(8.dp)
-            ) {
-                OutlinedButton(
-                    onClick = { viewModel.onExpenseChange(true) },
-                    modifier = Modifier.weight(1f),
-                    colors = ButtonDefaults.outlinedButtonColors(
-                        contentColor = when (state.isExpense) {
-                            true -> MaterialTheme.colors.error
-                            else -> MaterialTheme.colors.onSurface
-                        }
-                    )
-                ) {
-                    Text("Expense")
-                }
-                OutlinedButton(
-                    onClick = { viewModel.onExpenseChange(false) },
-                    modifier = Modifier.weight(1f),
-                    colors = ButtonDefaults.outlinedButtonColors(
-                        contentColor = when (state.isExpense) {
-                            true -> MaterialTheme.colors.onSurface
-                            false -> MaterialTheme.colors.primary
-                        }
-                    )
-                ) {
-                    Text("Income")
-                }
-            }
         }
 
         item {
@@ -120,9 +85,26 @@ fun AddTransactionScreen(
         }
 
         item {
+            TabRow(
+                selectedTabIndex = if (state.isExpense) 0 else 1,
+            ) {
+                Tab(
+                    selected = state.isExpense,
+                    onClick = { viewModel.onExpenseChange(true) },
+                    text = { Text("Expense") }
+                )
+                Tab(
+                    selected = !state.isExpense,
+                    onClick = { viewModel.onExpenseChange(false) },
+                    text = { Text("Income") }
+                )
+            }
+        }
+
+        item {
             Text(
                 text = "Category",
-                style = MaterialTheme.typography.subtitle1,
+                style = MaterialTheme.typography.titleMedium,
                 modifier = Modifier.padding(vertical = 16.dp)
             )
             FlowRow(
@@ -147,7 +129,7 @@ fun AddTransactionScreen(
         item {
             Text(
                 text = "Payment Method",
-                style = MaterialTheme.typography.subtitle1,
+                style = MaterialTheme.typography.titleMedium,
                 modifier = Modifier.padding(vertical = 16.dp)
             )
             FlowRow(
@@ -197,9 +179,9 @@ private fun CategoryChip(
             .clickable(onClick = onClick)
             .size(85.dp),
         shape = RoundedCornerShape(16.dp),
-        color = if (selected) Color(category.color) else MaterialTheme.colors.surface,
-        contentColor = if (selected) MaterialTheme.colors.onPrimary else MaterialTheme.colors.onSurface,
-        elevation = if (selected) 8.dp else 4.dp
+        color = if (selected) Color(category.color) else MaterialTheme.colorScheme.surface,
+        contentColor = if (selected) MaterialTheme.colorScheme.onPrimary else MaterialTheme.colorScheme.onSurface,
+        shadowElevation = if (selected) 8.dp else 4.dp
     ) {
         Column(
             modifier = Modifier.fillMaxSize(),
@@ -208,12 +190,12 @@ private fun CategoryChip(
         ) {
             Text(
                 text = category.emoji,
-                style = MaterialTheme.typography.h4,
+                style = MaterialTheme.typography.headlineMedium,
                 modifier = Modifier.padding(bottom = 4.dp)
             )
             Text(
                 text = category.name,
-                style = MaterialTheme.typography.caption,
+                style = MaterialTheme.typography.labelMedium,
                 textAlign = TextAlign.Center
             )
         }
@@ -233,9 +215,9 @@ private fun MoneySourceChip(
             .clickable(onClick = onClick)
             .size(85.dp),
         shape = RoundedCornerShape(16.dp),
-        color = if (selected) Color(source.color) else MaterialTheme.colors.surface,
-        contentColor = if (selected) MaterialTheme.colors.onPrimary else MaterialTheme.colors.onSurface,
-        elevation = if (selected) 8.dp else 4.dp
+        color = if (selected) Color(source.color) else MaterialTheme.colorScheme.surface,
+        contentColor = if (selected) MaterialTheme.colorScheme.onPrimary else MaterialTheme.colorScheme.onSurface,
+        shadowElevation = if (selected) 8.dp else 4.dp
     ) {
         Column(
             modifier = Modifier.fillMaxSize(),
@@ -244,12 +226,12 @@ private fun MoneySourceChip(
         ) {
             Text(
                 text = source.emoji,
-                style = MaterialTheme.typography.h4,
+                style = MaterialTheme.typography.headlineMedium,
                 modifier = Modifier.padding(bottom = 4.dp)
             )
             Text(
                 text = source.name,
-                style = MaterialTheme.typography.caption,
+                style = MaterialTheme.typography.labelMedium,
                 textAlign = TextAlign.Center
             )
         }
