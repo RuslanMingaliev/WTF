@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Where's the funds?</string>
+    <string name="app_name_short">WTF?</string>
+
+    <string name="add_transaction_title">Добавить транзакцию</string>
+
+    <string name="category_hobby">Хобби</string>
+    <string name="category_shopping">Шоппинг</string>
+    <string name="category_stub">Категория</string>
+</resources>

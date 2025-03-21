@@ -1,0 +1,78 @@
+# Gradle
+.gradle/
+build/
+local.properties
+
+# IntelliJ IDEA
+*.iml
+*.iws
+*.ipr
+.idea/
+out/
+
+# Android Studio
+captures/
+.externalNativeBuild/
+.cxx/
+
+# Xcode
+xcuserdata/
+*.xcodeproj/*
+!*.xcodeproj/project.pbxproj
+!*.xcodeproj/xcshareddata/
+!*.xcodeproj/project.xcworkspace/
+!*.xcworkspace/contents.xcworkspacedata
+**/xcshareddata/WorkspaceSettings.xcsettings
+*.mode1v3
+*.mode2v3
+*.perspectivev3
+*.pbxuser
+*.moved-aside
+*.xccheckout
+*.xcscmblueprint
+*.hmap
+*.ipa
+*.dSYM.zip
+*.dSYM
+.build/
+
+# Compose Multiplatform
+*.podspec
+.DS_Store
+iosApp/Podfile.lock
+iosApp/Pods/
+iosApp/iosApp.xcworkspace/
+iosApp/iosApp.xcodeproj/xcuserdata/
+shared/shared.podspec
+
+# Node.js (for web target if used)
+node_modules/
+npm-debug.log
+yarn-debug.log
+yarn-error.log
+
+# Generated files
+*.class
+*.log
+*.ctxt
+*.jar
+*.war
+*.nar
+*.ear
+*.zip
+*.tar.gz
+*.rar
+hs_err_pid*
+replay_pid*
+
+# Kotlin
+*.kotlin_module
+*.kotlin_metadata
+*.kotlin_builtins
+
+# Misc
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
