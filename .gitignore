@@ -44,6 +44,7 @@ iosApp/Pods/
 iosApp/iosApp.xcworkspace/
 iosApp/iosApp.xcodeproj/xcuserdata/
 shared/shared.podspec
+.kotlin
 
 # Node.js (for web target if used)
 node_modules/
