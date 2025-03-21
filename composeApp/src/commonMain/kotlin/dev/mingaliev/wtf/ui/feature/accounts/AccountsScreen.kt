@@ -19,4 +19,4 @@ fun AccountsScreen(paddingValues: PaddingValues) {
     ) {
         Text("Accounts (in development)")
     }
-} 
+}

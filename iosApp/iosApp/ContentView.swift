@@ -15,12 +15,9 @@ struct ContentView: View {
         ZStack {
             Color(UIColor.black)
                 .ignoresSafeArea()
-            
+
             ComposeView()
                 .ignoresSafeArea(.keyboard) // Compose has own keyboard handler
         }
     }
 }
-
-
-

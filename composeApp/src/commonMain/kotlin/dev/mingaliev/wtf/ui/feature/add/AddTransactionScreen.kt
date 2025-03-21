@@ -71,7 +71,10 @@ fun AddTransactionScreen(
                     onClick = { viewModel.onExpenseChange(true) },
                     modifier = Modifier.weight(1f),
                     colors = ButtonDefaults.outlinedButtonColors(
-                        contentColor = if (state.isExpense) MaterialTheme.colors.error else MaterialTheme.colors.onSurface
+                        contentColor = when (state.isExpense) {
+                            true -> MaterialTheme.colors.error
+                            else -> MaterialTheme.colors.onSurface
+                        }
                     )
                 ) {
                     Text("Expense")
@@ -80,7 +83,10 @@ fun AddTransactionScreen(
                     onClick = { viewModel.onExpenseChange(false) },
                     modifier = Modifier.weight(1f),
                     colors = ButtonDefaults.outlinedButtonColors(
-                        contentColor = if (!state.isExpense) MaterialTheme.colors.primary else MaterialTheme.colors.onSurface
+                        contentColor = when (state.isExpense) {
+                            true -> MaterialTheme.colors.onSurface
+                            false -> MaterialTheme.colors.primary
+                        }
                     )
                 ) {
                     Text("Income")

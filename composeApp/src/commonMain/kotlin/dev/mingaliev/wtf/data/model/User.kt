@@ -15,4 +15,4 @@ enum class Currency(val symbol: String, val code: String) {
     RUB("₽", "RUB"),
     USD("$", "USD"),
     EUR("€", "EUR")
-} 
+}

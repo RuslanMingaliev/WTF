@@ -24,4 +24,4 @@ val defaultMoneySources = listOf(
     MoneySource("3", "Bank", "🏦", 0xFF9C27B0),
     MoneySource("4", "Crypto", "₿", 0xFF607D8B),
     MoneySource("5", "Other", "📌", 0xFF9E9E9E)
-) 
+)
