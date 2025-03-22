@@ -11,6 +11,7 @@ plugins {
     alias(libs.plugins.kotlinMultiplatform) apply false
 
     alias(libs.plugins.detekt)
+    alias(libs.plugins.composeHotReload) apply false
 }
 
 dependencies {

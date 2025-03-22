@@ -4,6 +4,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Window
 import androidx.compose.ui.window.application
 import androidx.compose.ui.window.rememberWindowState
+import org.jetbrains.compose.reload.DevelopmentEntryPoint
 import org.jetbrains.compose.resources.stringResource
 import wtf.composeapp.generated.resources.Res
 import wtf.composeapp.generated.resources.app_name
@@ -18,6 +19,8 @@ fun main() = application {
         ),
         resizable = true,
     ) {
-        App()
+        DevelopmentEntryPoint {
+            App()
+        }
     }
 }
